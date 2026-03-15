@@ -6,7 +6,11 @@ export default function SuccessPage() {
     return (
         <main className="success-container">
             <div className="success-card animate-fade-in">
-                <div className="success-icon">🎉</div>
+                <div className="success-icon p-2 bg-[#1a1a1a] rounded-full border border-[#333] mb-4 inline-flex items-center justify-center">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[var(--accent)]">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                </div>
                 <h1 className="success-title">Payment Successful</h1>
                 <p className="success-message">
                     Thank you for purchasing Lumefx Bundle.<br />

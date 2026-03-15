@@ -1,7 +1,7 @@
 .journey-section {
     padding: 8rem 0;
-    background-color: var(--muted);
-    /* #f8fafc */
+    background-color: transparent;
+    /* transparent */
     position: relative;
     overflow: hidden;
 }
@@ -19,7 +19,7 @@
     bottom: 0;
     left: 50%;
     width: 2px;
-    background: #E2E8F0;
+    background: var(--surface-2);
     transform: translateX(-50%);
     z-index: 1;
 }
@@ -48,10 +48,12 @@
 
 .journey-card {
     width: 45%;
-    background: #ffffff;
-    border-radius: 20px;
+    background: rgba(17, 17, 17, 0.35);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-radius: var(--radius);
     padding: 2.5rem;
-    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--shadow-card);
     border: 1px solid var(--border);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -59,17 +61,18 @@
 .journey-card:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-hover);
+    border-color: var(--accent);
 }
 
 .timeline-dot {
     width: 16px;
     height: 16px;
-    background: var(--accent-blue);
+    background: var(--accent);
     border-radius: 50%;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    box-shadow: 0 0 0 4px #ffffff, 0 0 0 6px #E2E8F0;
+    box-shadow: 0 0 0 4px var(--surface-1), 0 0 0 6px var(--surface-2);
 }
 
 .journey-title {
@@ -89,15 +92,17 @@
 .journey-preview-placeholder {
     width: 100%;
     aspect-ratio: 16/9;
-    background: #F1F5F9;
-    border-radius: 12px;
+    background: rgba(26, 26, 26, 0.5);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: var(--radius);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #94A3B8;
+    color: var(--muted-foreground);
     font-weight: 500;
     font-size: 0.875rem;
-    border: 1px dashed #CBD5E1;
+    border: 1px dashed var(--border);
 }
 
 /* Custom Slide-In Animations */

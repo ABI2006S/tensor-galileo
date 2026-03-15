@@ -4,7 +4,7 @@
     left: 0;
     width: 100%;
     z-index: 100;
-    padding: 1.5rem 0;
+    padding: 2.5rem 0;
 }
 
 .navbar-pill-container {
@@ -17,63 +17,88 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
     width: 100%;
     max-width: 900px;
-    background: #ffffff;
-    border-radius: 9999px;
-    padding: 0.75rem 0.75rem 0.75rem 2rem;
-    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.02);
-    border: 1px solid rgba(0, 0, 0, 0.03);
+    background: rgba(17, 17, 17, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: var(--radius);
+    padding: 1rem 1.5rem;
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
 }
 
 .navbar-logo {
-    font-weight: 800;
-    font-size: 1.5rem;
-    color: var(--foreground);
+    display: flex;
+    align-items: center;
 }
 
-.logo-highlight {
-    color: var(--accent-blue);
+.logo-img {
+    border-radius: 4px;
+    transition: transform 0.2s ease, filter 0.2s ease;
+    cursor: pointer;
+    mix-blend-mode: screen;
+}
+
+.logo-img:hover {
+    transform: rotate(-3deg) scale(1.02);
 }
 
 .navbar-links {
     display: flex;
     gap: 3rem;
     align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .navbar-links a {
     font-size: 0.95rem;
-    font-weight: 500;
-    text-transform: capitalize;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
     color: var(--muted-foreground);
     transition: color 0.2s;
+    position: relative;
 }
 
-.navbar-links a.nav-dropdown {
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-}
-
-.navbar-links a.nav-dropdown svg {
-    margin-top: 2px;
+.navbar-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--accent);
+    transition: width 0.2s ease;
 }
 
 .navbar-links a:hover {
     color: var(--foreground);
 }
 
+.navbar-links a:hover::after {
+    width: 100%;
+}
+
 .btn-nav {
-    border-radius: 100px;
+    border-radius: var(--radius);
     padding: 10px 24px;
     font-size: 0.95rem;
-    background: #0B1F3B;
+    background: var(--surface-1);
     color: white;
+    border: 1px solid var(--border);
+    transition: all 0.2s ease;
 }
 
 .btn-nav:hover {
-    background: #1E3A8A;
+    background: var(--surface-2);
+    border-color: var(--accent);
+    box-shadow: 0 0 10px rgba(255, 26, 26, 0.2);
+    transform: scale(1.02);
 }
 
 @media (max-width: 768px) {

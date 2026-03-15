@@ -1,6 +1,6 @@
 .benefits-section {
     padding: 4.5rem 0;
-    background: #ffffff;
+    background: transparent;
 }
 
 .benefits-grid {
@@ -12,7 +12,9 @@
 }
 
 .benefit-card {
-    background: #f8fafc;
+    background: var(--surface-1);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     padding: 3rem 2rem;
     border-radius: var(--radius);
     text-align: center;
@@ -23,6 +25,7 @@
 .benefit-card:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-hover);
+    border-color: var(--accent);
 }
 
 .benefit-icon {

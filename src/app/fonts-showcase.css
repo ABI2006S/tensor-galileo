@@ -1,0 +1,172 @@
+/* src/app/fonts-showcase.css */
+
+.fonts-showcase-container {
+  background: rgba(17, 17, 17, 0.35);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 4rem 2rem;
+  margin: 0 auto;
+}
+
+.font-card {
+  padding: 2rem;
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(20, 20, 20, 0.8), rgba(10, 10, 10, 0.9));
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 2px 20px rgba(255, 255, 255, 0.02);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.font-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 26, 26, 0.5), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.font-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 26, 26, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 26, 26, 0.15);
+}
+
+.font-card:hover::before {
+  opacity: 1;
+}
+
+/* Header Area: Aa Block + Title */
+.font-header {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.font-aa-block {
+  width: 80px;
+  height: 80px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: var(--foreground);
+  box-shadow: inset 0 2px 10px rgba(0,0,0,0.5);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.font-aa-block::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(255, 26, 26, 0.2), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+}
+
+.font-aa-letter {
+  position: relative;
+  z-index: 1;
+  transition: color 0.3s ease;
+}
+
+.font-card:hover .font-aa-block {
+  border-color: rgba(255, 26, 26, 0.5);
+  box-shadow: 0 0 20px rgba(255, 26, 26, 0.2), inset 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.font-card:hover .font-aa-block::after {
+  opacity: 1;
+}
+
+.font-card:hover .font-aa-letter {
+  color: rgba(255, 26, 26, 1);
+}
+
+.font-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.font-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--foreground);
+  margin: 0;
+}
+
+.font-category {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255, 26, 26, 0.8);
+}
+
+/* Demo Area */
+.font-demo-area {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  position: relative;
+}
+
+.font-demo-text {
+  color: var(--foreground);
+  opacity: 0.9;
+  line-height: 1.4;
+  transition: opacity 0.3s ease;
+}
+
+.font-card:hover .font-demo-text {
+  opacity: 1;
+}
+
+/* Description Area */
+.font-description {
+  color: var(--muted-foreground);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.fonts-included-badge {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  background: rgba(20, 20, 20, 0.8);
+  border: 1px solid rgba(255, 26, 26, 0.3);
+  color: var(--foreground);
+  font-size: 1.125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  box-shadow: 0 0 20px rgba(255, 26, 26, 0.15);
+  transition: all 0.3s ease;
+}
+
+.fonts-included-badge:hover {
+  border-color: rgba(255, 26, 26, 0.8);
+  box-shadow: 0 0 30px rgba(255, 26, 26, 0.3);
+  transform: scale(1.05);
+}

@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 export default function Navbar() {
     return (
@@ -6,7 +7,7 @@ export default function Navbar() {
             <div className="container navbar-pill-container">
                 <div className="navbar-floating-pill">
                     <div className="navbar-logo">
-                        <span className="logo-text">Lume<span className="logo-highlight">fx</span></span>
+                        <Image src="/logo.jpeg" alt="LumeFX Logo" width={48} height={48} className="logo-img" />
                     </div>
                     <div className="navbar-links">
                         <a href="#">Home</a>

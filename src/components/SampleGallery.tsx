@@ -1,14 +1,13 @@
 import React from 'react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
-import Image from 'next/image';
-import AdminEditableAsset from '@/components/AdminEditableAsset';
+import CircularGallery from '@/components/CircularGallery';
 
 const samples = [
-    { id: "s1", label: "Preset Example", image: "/assets/previews/presets/preset-preview.jpg" },
-    { id: "s2", label: "LUT Example", image: "/assets/previews/luts/lut-preview.jpg" },
-    { id: "s3", label: "Overlay Example", image: "/assets/previews/overlays/overlay-preview.jpg" },
-    { id: "s4", label: "Font Example", image: "/assets/previews/fonts/font-preview.jpg" },
-    { id: "s5", label: "Sound Effects Preview", image: "/assets/previews/sound-effects/sound-preview.jpg" }
+    { id: "p1", title: "Cyberpunk Preset", image: "/assets/presets/preset-1.jpg" },
+    { id: "p2", title: "Noir LUT", image: "/assets/presets/preset-2.jpg" },
+    { id: "p3", title: "Cinematic Glow", image: "/assets/presets/preset-3.jpg" },
+    { id: "s1", title: "Light Leaks", image: "/assets/previews/presets/preset-preview.jpg" },
+    { id: "s2", title: "Vintage Film", image: "/assets/previews/luts/lut-preview.jpg" }
 ];
 
 export default function SampleGallery() {
@@ -21,23 +20,8 @@ export default function SampleGallery() {
                     <h2 className="section-title">Preview the Bundle</h2>
                 </div>
 
-                <div className="gallery-scroll-container reveal reveal-delay-200">
-                    <div className="gallery-track">
-                        {samples.map((sample) => (
-                            <div key={sample.id} className="gallery-item">
-                                <Image
-                                    src={sample.image}
-                                    alt={sample.label}
-                                    fill
-                                    style={{ objectFit: 'cover' }}
-                                    className="gallery-image"
-                                />
-                                <div className="gallery-overlay">
-                                    <span className="gallery-label">{sample.label}</span>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
+                <div className="reveal reveal-delay-200 mt-8 mb-8">
+                    <CircularGallery items={samples} />
                 </div>
 
                 <div className="text-center mt-12 reveal reveal-delay-300">

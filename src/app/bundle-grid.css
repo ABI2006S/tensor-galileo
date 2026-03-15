@@ -1,6 +1,6 @@
 .bundle-grid-section {
     padding: 8rem 0;
-    background-color: var(--background);
+    background-color: transparent;
 }
 
 .bundle-visual-grid {
@@ -12,22 +12,24 @@
 }
 
 .bundle-grid-card {
-    background: #ffffff;
+    background: var(--surface-1);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     border: 1px solid var(--border);
-    border-radius: 20px;
+    border-radius: var(--radius);
     padding: 2.5rem 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    box-shadow: var(--shadow-card);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .bundle-grid-card:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-hover);
-    border-color: rgba(37, 99, 235, 0.2);
+    border-color: var(--accent);
 }
 
 .bundle-card-icon {
@@ -35,12 +37,12 @@
     margin-bottom: 1.5rem;
     width: 72px;
     height: 72px;
-    background: #F8FAFC;
-    border-radius: 50%;
+    background: var(--surface-2);
+    border-radius: var(--radius);
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid #E2E8F0;
+    border: 1px solid var(--border);
 }
 
 .bundle-card-title {
@@ -59,25 +61,27 @@
 .bundle-total-size {
     max-width: 600px;
     margin: 0 auto;
-    background: #0B1F3B;
-    /* Deep Navy */
+    background: var(--surface-1);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
     color: white;
     padding: 1.5rem 2rem;
-    border-radius: 16px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 1rem;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 10px 25px rgba(11, 31, 59, 0.2);
+    box-shadow: var(--shadow-card);
 }
 
 .glow-orb {
     position: absolute;
     width: 200px;
     height: 200px;
-    background: var(--accent-blue);
+    background: var(--accent);
     filter: blur(80px);
     opacity: 0.3;
     left: -50px;
@@ -99,8 +103,7 @@
     font-size: 1.5rem;
     font-weight: 800;
     letter-spacing: 0.05em;
-    color: #38bdf8;
-    /* sky-400 */
+    color: var(--accent);
 }
 
 @media (max-width: 900px) {

@@ -28,7 +28,7 @@ export default function PricingSection({ onCheckout }: PricingSectionProps) {
             <div className="container">
                 <div className="pricing-card text-center reveal">
                     <div className="pricing-header reveal reveal-delay-100">
-                        <span className="launch-badge">🔥 LIMITED CREATOR OFFER</span>
+                        <span className="launch-badge">LIMITED CREATOR OFFER</span>
                         <h2 className="pricing-title">Complete Creator Bundle</h2>
                     </div>
 
@@ -69,27 +69,27 @@ export default function PricingSection({ onCheckout }: PricingSectionProps) {
                             <span className="original-price" style={{ textDecoration: 'line-through', color: '#94a3b8', fontSize: '1.5rem', fontWeight: 600 }}>₹4999</span>
                             <span className="current-price" style={{ margin: 0 }}>₹489</span>
                         </div>
-                        <span className="offer-save">🔥 You Save ₹4,510</span>
+                        <span className="offer-save">You Save ₹4,510</span>
                     </div>
 
                     <div className="pricing-urgency reveal reveal-delay-400">
                         <div className="countdown-timer">
-                            <span className="timer-text">⏳ Offer Ends In: {formatTime(timeLeft)}</span>
+                            <span className="timer-text">Offer Ends In: {formatTime(timeLeft)}</span>
                         </div>
                         <span className="amount-urgency">Price increases to ₹4,999 tonight</span>
                     </div>
 
                     <div className="pricing-social-proof reveal reveal-delay-400">
-                        ⭐⭐⭐⭐⭐ Rated 4.8/5 by 10,000+ creators
+                        Rated 4.8/5 by 10,000+ creators
                     </div>
 
                     <div className="pricing-cta reveal reveal-delay-500">
                         <button className="btn-primary btn-checkout" onClick={onCheckout}>
-                            🚀 Get Lumefx Bundle Now
+                            Get Lumefx Bundle Now
                         </button>
 
                         <div className="trust-elements">
-                            <div className="trust-item secure-payment">🔒 Secure payment via Razorpay</div>
+                            <div className="trust-item secure-payment"><svg className="inline-block mr-2" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg> Secure payment via Razorpay</div>
                             <div className="trust-features">
                                 <span className="trust-check">✔ Instant Download</span>
                                 <span className="trust-check">✔ Lifetime Access</span>
