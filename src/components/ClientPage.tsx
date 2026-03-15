@@ -43,7 +43,14 @@ export default function ClientPage() {
     return () => observer.disconnect();
   }, []);
 
-  const handleOpenCheckout = () => setIsModalOpen(true);
+  const handleOpenCheckout = () => {
+    setIsModalOpen(true);
+    // Track InitiateCheckout event
+    if (typeof window !== 'undefined' && (window as any).fbq) {
+      (window as any).fbq('track', 'InitiateCheckout');
+    }
+  };
+
   const handleCloseCheckout = () => setIsModalOpen(false);
 
   const loadRazorpay = () =>
@@ -87,6 +94,14 @@ export default function ClientPage() {
 
       // 2. Handle Free Product Bypass
       if (orderData.is_free) {
+        // Track Purchase event for free products
+        if (typeof window !== 'undefined' && (window as any).fbq) {
+          (window as any).fbq('track', 'Purchase', {
+            value: 0,
+            currency: 'INR',
+            content_name: 'Lumefx Creator Bundle'
+          });
+        }
         window.location.href = '/success';
         return;
       }
@@ -115,6 +130,14 @@ export default function ClientPage() {
           });
           const verifyData = await verifyRes.json();
           if (verifyRes.ok) {
+            // Track Purchase event for successful payments
+            if (typeof window !== 'undefined' && (window as any).fbq) {
+              (window as any).fbq('track', 'Purchase', {
+                value: orderData.amount / 100, // Razorpay amount is in paise
+                currency: orderData.currency,
+                content_name: 'Lumefx Creator Bundle'
+              });
+            }
             window.location.href = '/success';
           } else {
             alert(verifyData.error || 'Payment verification failed.');
