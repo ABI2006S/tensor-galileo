@@ -1,0 +1,9 @@
+Flask==3.0.2
+Flask-Cors==4.0.0
+razorpay==1.4.1
+supabase
+resend==0.8.0
+python-dotenv==1.0.1
+httpx<0.28.0
+websockets>=14.0
+setuptools<70.0.0

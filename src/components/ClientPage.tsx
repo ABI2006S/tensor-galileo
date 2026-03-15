@@ -69,45 +69,55 @@ export default function ClientPage() {
     }
 
     try {
-      const orderRes = await fetch('/api/create-order', {
+      // 1. Create order in Flask Backend
+      const orderRes = await fetch('http://localhost:5000/create-order', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ amount: 489 }),
+        body: JSON.stringify({
+          ...formData,
+          product_id: '5ba7f5f0-b8b0-48eb-876d-8d6ee0aadc99' // Complete Creator Bundle
+        }),
       });
       const orderData = await orderRes.json();
 
-      if (!orderData.id) {
-        alert('Server error. Please try again.');
+      if (!orderData.order_id) {
+        alert(orderData.error || 'Server error. Please try again.');
         return;
       }
 
+      // 2. Handle Free Product Bypass
+      if (orderData.is_free) {
+        window.location.href = '/success';
+        return;
+      }
+
+      // 3. Handle Paid Product via Razorpay
       const options = {
         key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || '',
         amount: orderData.amount,
         currency: orderData.currency,
         name: 'Lumefx',
         description: 'Lumefx Creator Bundle',
-        order_id: orderData.id,
+        order_id: orderData.order_id,
         handler: async function (response: {
           razorpay_payment_id: string;
           razorpay_order_id: string;
           razorpay_signature: string;
         }) {
-          const verifyRes = await fetch('/api/verify-payment', {
+          const verifyRes = await fetch('http://localhost:5000/verify-payment', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
               razorpay_payment_id: response.razorpay_payment_id,
               razorpay_order_id: response.razorpay_order_id,
               razorpay_signature: response.razorpay_signature,
-              customerInfo: formData,
             }),
           });
           const verifyData = await verifyRes.json();
-          if (verifyData.success) {
+          if (verifyRes.ok) {
             window.location.href = '/success';
           } else {
-            alert('Payment verification failed.');
+            alert(verifyData.error || 'Payment verification failed.');
           }
         },
         prefill: { name: formData.name, email: formData.email },

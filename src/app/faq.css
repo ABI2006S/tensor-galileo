@@ -77,12 +77,18 @@
 }
 
 @media (max-width: 768px) {
+    .faq-section {
+        padding: var(--section-padding) 0;
+    }
+
     .faq-question {
         padding: 1.25rem 1.5rem;
-        font-size: 1.05rem;
+        font-size: 1rem;
+        gap: 1rem;
     }
 
     .faq-answer-content {
         padding: 0 1.5rem;
+        font-size: 0.95rem;
     }
 }

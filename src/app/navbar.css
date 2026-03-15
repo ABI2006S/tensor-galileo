@@ -101,8 +101,108 @@
     transform: scale(1.02);
 }
 
+.desktop-only {
+    display: block;
+}
+
+.mobile-only-cta {
+    display: none;
+}
+
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    z-index: 1001;
+}
+
+.hamburger {
+    width: 24px;
+    height: 18px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--foreground);
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
 @media (max-width: 768px) {
-    .navbar-links {
+    .navbar-wrapper {
+        padding: 1.5rem 0;
+    }
+
+    .desktop-only {
         display: none;
+    }
+
+    .mobile-only-cta {
+        display: block;
+        width: 100%;
+        margin-top: 1rem;
+        padding-top: 2rem;
+        border-top: 1px solid var(--border);
+    }
+
+    .mobile-menu-toggle {
+        display: block;
+    }
+
+    .navbar-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        height: 100vh;
+        background: rgba(10, 10, 10, 0.98);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2.5rem;
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        z-index: 1000;
+        padding: 2rem;
+        transform: none;
+        left: auto;
+    }
+
+    .navbar-links.mobile-active {
+        right: 0;
+    }
+
+    .navbar-links a {
+        font-size: 1.25rem;
+    }
+
+    .navbar-floating-pill {
+        border-radius: 12px;
+        padding: 0.75rem 1rem;
+    }
+    
+    .navbar-floating-pill.menu-open {
+        background: rgba(17, 17, 17, 0.9);
     }
 }

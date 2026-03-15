@@ -1,10 +1,23 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import Image from 'next/image';
 import AdminEditableAsset from '@/components/AdminEditableAsset';
 
 export default function Hero() {
     useScrollReveal();
+    const [isPlaying, setIsPlaying] = useState(false);
+    const videoRef = useRef<HTMLVideoElement>(null);
+
+    const handleTogglePlay = () => {
+        if (videoRef.current) {
+            if (isPlaying) {
+                videoRef.current.pause();
+            } else {
+                videoRef.current.play();
+            }
+            setIsPlaying(!isPlaying);
+        }
+    };
 
     return (
         <section className="hero-section">
@@ -28,13 +41,13 @@ export default function Hero() {
                             Instant Download • Lifetime Access • 64GB Creator Bundle
                         </span>
 
-                        <div className="hero-trust mt-10 flex flex-col items-center gap-1.5 bg-black/40 px-10 py-5 rounded-2xl border border-[var(--border)] backdrop-blur-md shadow-[var(--shadow-card)]">
-                            <div className="stars flex gap-1 mb-1">
-                                {'★★★★★'.split('').map((star, i) => <span key={i} className="star-icon text-yellow-500 text-xl">{star}</span>)}
+                        <div className="hero-trust reveal reveal-delay-400">
+                            <div className="stars">
+                                {'★★★★★'.split('').map((star, i) => <span key={i} className="star-icon">{star}</span>)}
                             </div>
-                            <span className="hero-trust-text font-bold text-white text-base tracking-wide uppercase">4.8/5 Creator Rating</span>
-                            <span className="hero-trust-text font-medium text-sm text-[var(--accent)] mb-2">10,000+ Downloads</span>
-                            <span className="hero-trust-text font-semibold text-[11px] text-[var(--muted-foreground)] uppercase tracking-wider bg-[var(--surface-2)]/80 px-4 py-1.5 rounded-full border border-[var(--border)]">
+                            <span className="hero-rating-text">4.8/5 Creator Rating</span>
+                            <span className="hero-download-text">10,000+ Downloads</span>
+                            <span className="hero-software-badge">
                                 Works with Premiere Pro, After Effects, CapCut
                             </span>
                         </div>
@@ -42,21 +55,28 @@ export default function Hero() {
                 </div>
 
                 <div className="hero-visual reveal reveal-delay-400">
-                    <div className="hero-video-placeholder">
-                        <AdminEditableAsset exactPath="/images/hero/preview.jpg">
-                            <Image
-                                src="/images/hero/preview.jpg"
-                                alt="Cinematic Transformation Reel"
-                                fill
-                                sizes="(max-width: 768px) 100vw, 50vw"
-                                style={{ objectFit: 'cover' }}
-                                priority
+                    <div className="hero-video-placeholder" onClick={handleTogglePlay}>
+                        <AdminEditableAsset exactPath="/videos/cinematic.mp4">
+                            <video
+                                ref={videoRef}
+                                src="/videos/cinematic.mp4"
+                                loop
+                                muted
+                                playsInline
+                                className="w-full h-full object-contain"
+                                style={{ position: 'absolute', top: 0, left: 0 }}
+                                onPlay={() => setIsPlaying(true)}
+                                onPause={() => setIsPlaying(false)}
                             />
                         </AdminEditableAsset>
-                        <div className="play-button-overlay z-10">
-                            <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32"><path d="M8 5v14l11-7z" /></svg>
-                        </div>
-                        <span className="video-placeholder-text z-10 relative">Cinematic Transformation Reel</span>
+                        {!isPlaying && (
+                            <div className="hero-video-overlay-items">
+                                <div className="play-button-overlay">
+                                    <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32"><path d="M8 5v14l11-7z" /></svg>
+                                </div>
+                                <span className="video-placeholder-text">Click to Play Preview</span>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>

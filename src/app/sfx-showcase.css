@@ -202,8 +202,41 @@
   width: 100%;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 1024px) {
+  .sfx-grid {
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .sfx-showcase-container {
+    padding: 2rem 1rem;
+    border-radius: 16px;
+  }
+
+  .sfx-title {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .sfx-grid {
+    gap: 1rem;
+  }
+
+  .sfx-card {
+    width: calc(50% - 0.5rem);
+    padding: 1rem;
+  }
+
   .sfx-badge-container {
-    padding-right: 1rem;
+    margin-top: 2rem;
+    justify-content: center;
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .sfx-card {
+    width: 100%;
   }
 }
