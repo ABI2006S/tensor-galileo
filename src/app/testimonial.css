@@ -1,6 +1,6 @@
 .testimonial-section {
     padding: 4.5rem 0;
-    background-color: var(--muted);
+    background-color: transparent;
 }
 
 .testimonial-trust-header {
@@ -32,15 +32,24 @@
 }
 
 .testimonial-card {
-    background: var(--background);
+    background: rgba(17, 17, 17, 0.35);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
     padding: 3rem 2.5rem;
-    border-radius: 20px;
+    border-radius: var(--radius);
     border: 1px solid var(--border);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    box-shadow: var(--shadow-card);
     display: flex;
     flex-direction: column;
     text-align: center;
     align-items: center;
+    transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--accent);
 }
 
 .quote-icon {
@@ -91,15 +100,26 @@
 @media (max-width: 1024px) {
     .testimonial-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
     }
 }
 
 @media (max-width: 768px) {
+    .testimonial-section {
+        padding: var(--section-padding) 0;
+    }
+
     .testimonial-grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 
     .testimonial-card {
-        padding: 2.5rem 2rem;
+        padding: 2rem 1.5rem;
+    }
+
+    .testimonial-text {
+        font-size: 1rem;
+        margin-bottom: 2rem;
     }
 }

@@ -1,10 +1,12 @@
 .urgency-section {
     padding: 6rem 0;
-    background: #ffffff;
+    background: transparent;
 }
 
 .urgency-banner {
-    background: #f8fafc;
+    background: rgba(17, 17, 17, 0.35);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
     border: 1px solid var(--border);
     border-radius: var(--radius);
     padding: 4rem 2rem;

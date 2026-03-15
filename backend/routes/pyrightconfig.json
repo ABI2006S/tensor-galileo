@@ -1,0 +1,8 @@
+{
+  "pythonPath": "D:/edits/64bytes/tensor-galileo/backend/venv/Scripts/python.exe",
+  "venvPath": "D:/edits/64bytes/tensor-galileo/backend",
+  "venv": "venv",
+  "extraPaths": ["D:/edits/64bytes/tensor-galileo/backend"],
+  "include": ["**/*.py"],
+  "typeCheckingMode": "basic"
+}

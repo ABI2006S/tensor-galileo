@@ -1,10 +1,23 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import Image from 'next/image';
 import AdminEditableAsset from '@/components/AdminEditableAsset';
 
 export default function Hero() {
     useScrollReveal();
+    const [isPlaying, setIsPlaying] = useState(false);
+    const videoRef = useRef<HTMLVideoElement>(null);
+
+    const handleTogglePlay = () => {
+        if (videoRef.current) {
+            if (isPlaying) {
+                videoRef.current.pause();
+            } else {
+                videoRef.current.play();
+            }
+            setIsPlaying(!isPlaying);
+        }
+    };
 
     return (
         <section className="hero-section">
@@ -12,7 +25,10 @@ export default function Hero() {
             <div className="container hero-container">
                 <div className="hero-content">
                     <h1 className="hero-title reveal reveal-delay-100">
-                        Turn Ordinary Footage Into Cinematic Edits in Seconds
+                        Turn Ordinary <br className="hidden md:block" />
+                        Footage Into <br className="hidden md:block" />
+                        Cinematic Edits In <br className="hidden md:block" />
+                        Seconds
                     </h1>
                     <p className="hero-subtitle reveal reveal-delay-200">
                         The ultimate creator toolkit including 200+ presets, 150+ LUTs, premium fonts, overlays, sound effects, and creator AI tools designed for modern video creators.
@@ -21,36 +37,46 @@ export default function Hero() {
                         <button className="btn-primary btn-hero-cta" onClick={() => document.getElementById('pricing')?.scrollIntoView()}>
                             Get Lumefx Creator Bundle
                         </button>
-                        <span className="hero-guarantee mt-2 block text-sm font-medium" style={{ color: "var(--muted-foreground)" }}>
+                        <span className="hero-guarantee mt-4 block text-sm font-medium tracking-widest uppercase opacity-80" style={{ color: "var(--muted-foreground)" }}>
                             Instant Download • Lifetime Access • 64GB Creator Bundle
                         </span>
 
-                        <div className="hero-trust mt-6 flex flex-col items-center gap-2">
-                            <div className="stars flex gap-1">
-                                {'★★★★★'.split('').map((star, i) => <span key={i} className="star-icon text-yellow-500 text-lg">{star}</span>)}
+                        <div className="hero-trust reveal reveal-delay-400">
+                            <div className="stars">
+                                {'★★★★★'.split('').map((star, i) => <span key={i} className="star-icon">{star}</span>)}
                             </div>
-                            <span className="hero-trust-text font-semibold text-sm" style={{ color: "var(--foreground)" }}>4.8/5 Creator Rating</span>
-                            <span className="hero-trust-text font-medium text-sm" style={{ color: "var(--muted-foreground)" }}>10,000+ Downloads</span>
-                            <span className="hero-trust-text font-medium text-xs mt-1" style={{ color: "var(--muted-foreground)" }}>Works with Premiere Pro, After Effects, CapCut</span>
+                            <span className="hero-rating-text">4.8/5 Creator Rating</span>
+                            <span className="hero-download-text">10,000+ Downloads</span>
+                            <span className="hero-software-badge">
+                                Works with Premiere Pro, After Effects, CapCut
+                            </span>
                         </div>
                     </div>
                 </div>
 
                 <div className="hero-visual reveal reveal-delay-400">
-                    <div className="hero-video-placeholder">
-                        <AdminEditableAsset exactPath="/images/hero/preview.jpg">
-                            <Image
-                                src="/images/hero/preview.jpg"
-                                alt="Cinematic Transformation Reel"
-                                fill
-                                style={{ objectFit: 'cover' }}
-                                priority
+                    <div className="hero-video-placeholder" onClick={handleTogglePlay}>
+                        <AdminEditableAsset exactPath="/videos/cinematic.mp4">
+                            <video
+                                ref={videoRef}
+                                src="/videos/cinematic.mp4"
+                                loop
+                                muted
+                                playsInline
+                                className="w-full h-full object-contain"
+                                style={{ position: 'absolute', top: 0, left: 0 }}
+                                onPlay={() => setIsPlaying(true)}
+                                onPause={() => setIsPlaying(false)}
                             />
                         </AdminEditableAsset>
-                        <div className="play-button-overlay z-10">
-                            <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32"><path d="M8 5v14l11-7z" /></svg>
-                        </div>
-                        <span className="video-placeholder-text z-10 relative">Cinematic Transformation Reel</span>
+                        {!isPlaying && (
+                            <div className="hero-video-overlay-items">
+                                <div className="play-button-overlay">
+                                    <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32"><path d="M8 5v14l11-7z" /></svg>
+                                </div>
+                                <span className="video-placeholder-text">Click to Play Preview</span>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>

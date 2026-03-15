@@ -1,6 +1,6 @@
 .footer-section {
     padding: 4rem 0 2rem;
-    background-color: var(--background);
+    background: transparent;
     border-top: 1px solid var(--border);
 }
 

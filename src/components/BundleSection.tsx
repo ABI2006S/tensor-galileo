@@ -4,6 +4,7 @@ import Image from 'next/image';
 import AudioPlayer from '@/components/AudioPlayer';
 import AdminEditableAsset from '@/components/AdminEditableAsset';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
+import '../app/bundle.css';
 
 const aiToolsDB = [
     { name: 'Runway ML', desc: 'AI video editing and background removal for creators.' },

@@ -1,0 +1,242 @@
+.sfx-showcase-container {
+  padding: 3rem 1.5rem;
+  background-color: rgba(10, 10, 10, 0.4);
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+  backdrop-filter: blur(12px);
+}
+
+.sfx-showcase-container::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(255, 26, 26, 0.08) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.sfx-title {
+  text-align: center;
+  font-family: var(--font-orbitron);
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--foreground);
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.sfx-grid {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  position: relative;
+  z-index: 1;
+  flex-wrap: wrap;
+}
+
+.sfx-card {
+  background: rgba(15, 15, 15, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 1.25rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  width: 140px;
+}
+
+.sfx-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.sfx-card.active {
+  border-color: rgba(255, 26, 26, 0.6);
+  box-shadow: 0 0 20px rgba(255, 26, 26, 0.15);
+  background: rgba(20, 20, 20, 0.8);
+}
+
+.sfx-disc {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #181818, #2a2a2a);
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5), inset 0 2px 5px rgba(255,255,255,0.05);
+  transition: all 0.3s ease;
+}
+
+.sfx-disc::before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--background);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.8);
+  z-index: 1;
+}
+
+/* Grooves on the disc */
+.sfx-disc::after {
+  content: '';
+  position: absolute;
+  width: 85%;
+  height: 85%;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  box-shadow: inset 0 0 0 4px rgba(10, 10, 10, 0.2), 
+              inset 0 0 0 8px transparent, 
+              inset 0 0 0 9px rgba(255, 255, 255, 0.03);
+  pointer-events: none;
+}
+
+.sfx-card:hover .sfx-disc {
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6), inset 0 2px 5px rgba(255,255,255,0.1);
+}
+
+.sfx-disc.playing {
+  animation: sfx-spin 2s linear infinite;
+  border-color: rgba(255, 26, 26, 0.8);
+  box-shadow: 0 0 16px rgba(255, 26, 26, 0.3), inset 0 2px 5px rgba(255,255,255,0.1);
+}
+
+@keyframes sfx-spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.sfx-play-icon {
+  width: 20px;
+  height: 20px;
+  color: var(--foreground);
+  z-index: 2; /* above the center hole */
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  opacity: 0.8;
+  /* Centering adjustments if needed */
+  margin-left: 2px;
+}
+
+.sfx-play-icon.pause {
+  margin-left: 0;
+}
+
+.sfx-disc:hover .sfx-play-icon {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.sfx-info {
+  text-align: center;
+  width: 100%;
+}
+
+.sfx-name {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--foreground);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 0.35rem;
+  letter-spacing: 0.02em;
+}
+
+.sfx-duration {
+  font-size: 0.65rem;
+  color: var(--muted-foreground);
+  font-variant-numeric: tabular-nums;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.sfx-progress-bar {
+  width: 100%;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  margin-top: 0.75rem;
+  overflow: hidden;
+}
+
+.sfx-progress-fill {
+  height: 100%;
+  background: var(--foreground);
+  width: 0%;
+  border-radius: 2px;
+  transition: width 0.1s linear;
+}
+
+.sfx-badge-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 3rem;
+  padding-bottom: 1.5rem;
+  padding-right: 2rem;
+  width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .sfx-grid {
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .sfx-showcase-container {
+    padding: 2rem 1rem;
+    border-radius: 16px;
+  }
+
+  .sfx-title {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .sfx-grid {
+    gap: 1rem;
+  }
+
+  .sfx-card {
+    width: calc(50% - 0.5rem);
+    padding: 1rem;
+  }
+
+  .sfx-badge-container {
+    margin-top: 2rem;
+    justify-content: center;
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .sfx-card {
+    width: 100%;
+  }
+}
