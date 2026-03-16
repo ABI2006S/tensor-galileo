@@ -3,10 +3,10 @@ import { getOrderById, getProductById } from '@/lib/supabase';
 
 export async function GET(
     request: Request,
-    { params }: { params: { orderId: string } }
+    context: { params: Promise<{ orderId: string }> }
 ) {
     try {
-        const orderId = params.orderId;
+        const { orderId } = await context.params;
 
         // 1. Fetch the order
         const order = await getOrderById(orderId);

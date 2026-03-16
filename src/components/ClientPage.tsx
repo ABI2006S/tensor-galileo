@@ -156,10 +156,32 @@ export default function ClientPage() {
     }
   };
 
+  const scrollToSection = (id: string) => {
+    if (id === 'home') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    } else if (!belowFoldVisible) {
+      // If element doesn't exist yet but it's because of lazy loading
+      setBelowFoldVisible(true);
+      // Wait for React to render the newly enabled sections
+      setTimeout(() => {
+        const newElement = document.getElementById(id);
+        if (newElement) {
+          newElement.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  };
+
   return (
     <main>
       <LandingAudio />
-      <Navbar />
+      <Navbar scrollToSection={scrollToSection} />
       <Hero />
 
       {/* Sentinel triggers loading of everything below the fold */}
