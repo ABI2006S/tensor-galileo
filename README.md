@@ -1,36 +1,114 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Tensor Galileo | LumeFX Presets Store
 
-## Getting Started
+<p align="center">
+  <img src="public/logo.jpeg" alt="Tensor Galileo Logo" width="200" style="border-radius: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+</p>
 
-First, run the development server:
+<p align="center">
+  <img src="https://img.shields.io/badge/Netlify-Deployed-00C7B7?style=for-the-badge&logo=netlify" alt="Netlify Deployment">
+  <img src="https://img.shields.io/badge/Next.js-15+-000000?style=for-the-badge&logo=nextdotjs" alt="Next.js Version">
+  <img src="https://img.shields.io/badge/Python-3.9+-3776AB?style=for-the-badge&logo=python" alt="Python Version">
+  <img src="https://img.shields.io/badge/Status-Online-44cc11?style=for-the-badge" alt="Status">
+</p>
+
+A premium marketplace for high-quality video editing assets, including Cinematic LUTs, curated Sound Effects (SFX), and professional fonts. Built for creators who want to elevate their production value with ease.
+
+---
+
+## 🚀 Overview
+
+Tensor Galileo (running on [lumefxpresets.store](https://lumefxpresets.store)) provides a seamless experience for browsing and purchasing editing bundles. The site features interactive showcases, smooth animations, and automated asset delivery upon purchase.
+
+### 🎥 Asset Gallery
+
+| Cinematic LUTs | Professional Bundles |
+| :---: | :---: |
+| ![LUT Preview](public/before-after/after1.jpg) | ![Bundle Items](public/bundle/1.png) |
+| *Visual Transformation Results* | *Curated Asset Bundles* |
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+- **Framework**: [Next.js 15+](https://nextjs.org/) (App Router)
+- **UI & Animations**: React, [Three.js](https://threejs.org/) (Fiber/Drei), [GSAP](https://greensock.com/gsap/) for smooth transitions.
+- **Styling**: Vanilla CSS with a focus on premium aesthetics and responsive design.
+
+### Backend
+- **Core**: [Flask](https://flask.palletsprojects.com/) (Python)
+- **Database**: [Supabase](https://supabase.com/) (PostgreSQL)
+- **Payment Gateway**: [Razorpay](https://razorpay.com/)
+- **Email Service**: [Resend](https://resend.com/) for automated delivery of digital assets.
+
+---
+
+## 📂 Project Structure
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+tensor-galileo/
+├── backend/            # Python Flask API
+│   ├── routes/         # API Route Handlers (Checkout, Payment, Download)
+│   ├── app.py          # Backend Entry Point
+│   ├── requirements.txt
+│   └── .env            # Backend Environment Variables
+├── public/             # Static Assets (Images, Videos, Icons)
+│   ├── before-after/   # LUT Comparison Previews
+│   └── bundle/         # Product Asset Thumbnails
+├── src/                # Next.js Frontend
+│   ├── app/            # App Router Pages & Styles
+│   ├── components/     # React Components (Hero, Modal, Sections)
+│   └── lib/            # Shared Utilities
+└── package.json        # Frontend Dependencies
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📦 Key Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **✅ Interactive Asset Showcase**: High-fidelity previews of LUTs, SFX, and fonts.
+- **✅ Before/After Comparisons**: Visual demonstrations of cinematic presets.
+- **✅ Secure Checkout**: Integrated Razorpay modal for seamless payments.
+- **✅ Automated Delivery**: Immediate email delivery of download links post-verification.
+- **✅ Responsive Design**: Optimized for both desktop and mobile creators.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## ⚙️ Local Development
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Prerequisites
+- Node.js (v18+)
+- Python (v3.9+)
+- Supabase account & project
+- Razorpay & Resend API keys
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 1. Frontend Setup
+```bash
+# Install dependencies
+npm install
 
-## Deploy on Vercel
+# Setup environment variables
+cp .env.local.example .env.local
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# Run the development server
+npm run dev
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 2. Backend Setup
+```bash
+cd backend
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+pip install -r requirements.txt
+cp .env.example .env
+python app.py
+```
+
+## 🌐 Deployment
+
+The project is configured for deployment on **Netlify**.
+- Frontend: Managed via Next.js Netlify plugin.
+- Backend: Can be deployed as Netlify Functions or external Flask hosting.
+
+---
+Built with ❤️ for the Creative Community.
