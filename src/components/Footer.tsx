@@ -217,12 +217,12 @@ export default function Footer() {
 
             {/* Policy links */}
             <div className="footer-doc-links">
-              <a href="#" className="footer-doc-link">
+              <a href="/terms-and-conditions" className="footer-doc-link">
                 <DocumentIcon />
                 Terms &amp; Conditions
               </a>
               <span className="footer-divider" aria-hidden="true" />
-              <a href="#" className="footer-doc-link">
+              <a href="/privacy-policy" className="footer-doc-link">
                 <DocumentIcon />
                 Privacy Policy
               </a>
