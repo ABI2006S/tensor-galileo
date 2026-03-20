@@ -4,7 +4,7 @@ import Image from 'next/image';
 import AudioPlayer from '@/components/AudioPlayer';
 import AdminEditableAsset from '@/components/AdminEditableAsset';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
-import '../app/bundle.css';
+import '../app/toolkit.css';
 
 const aiToolsDB = [
     { name: 'Runway ML', desc: 'AI video editing and background removal for creators.' },
@@ -29,7 +29,7 @@ const aiToolsDB = [
     { name: 'Stable Diffusion', desc: 'Open-source image generation running directly on your PC.' }
 ];
 
-const bundleCategories = [
+const toolkitCategories = [
     {
         id: '01',
         title: 'Backgrounds',
@@ -104,7 +104,7 @@ const bundleCategories = [
     },
     {
         id: '09',
-        title: 'Ultimate Editing Bundle',
+        title: 'Ultimate Editing Toolkit',
         desc: 'The complete toolkit combining absolutely everything listed above.',
         type: 'showcase',
         items: ['64GB Data'],
@@ -112,7 +112,7 @@ const bundleCategories = [
     },
 ];
 
-export default function BundleSection() {
+export default function ToolkitSection() {
     useScrollReveal();
     const [randomAITools, setRandomAITools] = useState<typeof aiToolsDB>([]);
 
@@ -123,14 +123,14 @@ export default function BundleSection() {
     }, []);
 
     return (
-        <section id="bundle" className="bundle-section">
+        <section id="toolkit" className="toolkit-section">
             <div className="container">
                 <div className="section-header text-center reveal">
                     <h2 className="section-title">Everything Inside Lumefx</h2>
                 </div>
 
-                <div className="bundle-categories-wrap">
-                    {bundleCategories.map((cat, blockIdx) => (
+                <div className="toolkit-categories-wrap">
+                    {toolkitCategories.map((cat, blockIdx) => (
                         <div key={cat.id} className={`category-block reveal reveal-delay-${(blockIdx % 3) * 100 + 100}`}>
                             <div className="category-header">
                                 <div className="cat-id">{cat.id}</div>
@@ -193,7 +193,7 @@ export default function BundleSection() {
                                 {cat.type === 'showcase' && (
                                     <div className="preview-item showcase-preview">
                                         <div className="showcase-content">
-                                            <h3>64GB MEGA BUNDLE</h3>
+                                            <h3>64GB MEGA TOOLKIT</h3>
                                             <p>Everything combined</p>
                                         </div>
                                     </div>

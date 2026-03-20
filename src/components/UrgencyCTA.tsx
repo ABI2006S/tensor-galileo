@@ -11,7 +11,7 @@ export default function UrgencyCTA() {
                     <h2 className="urgency-title">Limited Launch Offer</h2>
                     <p className="urgency-desc">
                         Thousands of creators are already upgrading their editing workflow using Lumefx.<br />
-                        Get the bundle today before the price increases.
+                        Get the Toolkit today before the price increases.
                     </p>
                     <button className="btn-primary btn-urgency" onClick={() => document.getElementById('pricing')?.scrollIntoView()}>
                         Download Now

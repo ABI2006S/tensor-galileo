@@ -13,7 +13,7 @@ export default function SuccessPage() {
                 </div>
                 <h1 className="success-title">Payment Successful</h1>
                 <p className="success-message">
-                    Thank you for purchasing Lumefx Bundle.<br />
+                    Thank you for purchasing Lumefx Toolkit.<br />
                     Your download link has been sent to your email.
                 </p>
 

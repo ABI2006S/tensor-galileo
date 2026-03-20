@@ -14,7 +14,7 @@ const PresetsShowcase = dynamic(() => import('@/components/PresetsShowcase'), { 
 const LutsShowcase = dynamic(() => import('@/components/LutsShowcase'), { ssr: false });
 const SfxShowcase = dynamic(() => import('@/components/SfxShowcase'), { ssr: false });
 const FontsShowcase = dynamic(() => import('@/components/FontsShowcase'), { ssr: false });
-const UltimateBundleSection = dynamic(() => import('@/components/UltimateBundleSection'), { ssr: false });
+const UltimateToolkitSection = dynamic(() => import('@/components/UltimateToolkitSection'), { ssr: false });
 const CreatorBenefits = dynamic(() => import('@/components/CreatorBenefits'), { ssr: false });
 const TestimonialSection = dynamic(() => import('@/components/TestimonialSection'), { ssr: false });
 const NewPricingSection = dynamic(() => import('@/components/NewPricingSection'), { ssr: false });
@@ -82,7 +82,7 @@ export default function ClientPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           ...formData,
-          product_id: '5ba7f5f0-b8b0-48eb-876d-8d6ee0aadc99' // Complete Creator Bundle
+          product_id: '5ba7f5f0-b8b0-48eb-876d-8d6ee0aadc99' // Complete Creator Toolkit
         }),
       });
       const orderData = await orderRes.json();
@@ -99,7 +99,7 @@ export default function ClientPage() {
           (window as any).fbq('track', 'Purchase', {
             value: 0,
             currency: 'INR',
-            content_name: 'Lumefx Creator Bundle'
+            content_name: 'Lumefx Creator Toolkit'
           });
         }
         window.location.href = '/success';
@@ -112,7 +112,7 @@ export default function ClientPage() {
         amount: orderData.amount,
         currency: orderData.currency,
         name: 'Lumefx',
-        description: 'Lumefx Creator Bundle',
+        description: 'Lumefx Creator Toolkit',
         order_id: orderData.order_id,
         handler: async function (response: {
           razorpay_payment_id: string;
@@ -135,7 +135,7 @@ export default function ClientPage() {
               (window as any).fbq('track', 'Purchase', {
                 value: orderData.amount / 100, // Razorpay amount is in paise
                 currency: orderData.currency,
-                content_name: 'Lumefx Creator Bundle'
+                content_name: 'Lumefx Creator Toolkit'
               });
             }
             window.location.href = '/success';
@@ -194,7 +194,7 @@ export default function ClientPage() {
           <LutsShowcase />
           <SfxShowcase />
           <FontsShowcase />
-          <UltimateBundleSection />
+          <UltimateToolkitSection />
           <CreatorBenefits />
           <TestimonialSection />
           <NewPricingSection onCheckout={handleOpenCheckout} />
@@ -227,14 +227,14 @@ export default function ClientPage() {
               maxWidth: '520px',
               lineHeight: 1.6,
             }}>
-              Upgrade your editing workflow with Lumefx Creator Bundle.
+              Upgrade your editing workflow with Lumefx Creator Toolkit.
             </p>
             <button
               onClick={handleOpenCheckout}
               className="btn-primary"
               style={{ padding: '1rem 3rem', fontSize: '1.05rem' }}
             >
-              Get Lumefx Creator Bundle
+              Get Lumefx Creator Toolkit
             </button>
             <p style={{
               color: 'var(--muted-foreground)',

@@ -2,7 +2,7 @@ import './navbar.css';
 import './hero.css';
 import './creator-problem.css';
 import './creator-benefits.css';
-import './bundle.css';
+import './toolkit.css';
 import './lut-showcase.css';
 import './sfx-showcase.css';
 import './fonts-showcase.css';

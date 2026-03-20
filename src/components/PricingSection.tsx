@@ -29,7 +29,7 @@ export default function PricingSection({ onCheckout }: PricingSectionProps) {
                 <div className="pricing-card text-center reveal">
                     <div className="pricing-header reveal reveal-delay-100">
                         <span className="launch-badge">LIMITED CREATOR OFFER</span>
-                        <h2 className="pricing-title">Complete Creator Bundle</h2>
+                        <h2 className="pricing-title">Complete Creator Toolkit</h2>
                     </div>
 
                     <div className="pricing-value-breakdown reveal reveal-delay-200">
@@ -85,7 +85,7 @@ export default function PricingSection({ onCheckout }: PricingSectionProps) {
 
                     <div className="pricing-cta reveal reveal-delay-500">
                         <button className="btn-primary btn-checkout" onClick={onCheckout}>
-                            Get Lumefx Bundle Now
+                            Get Lumefx Toolkit Now
                         </button>
 
                         <div className="trust-elements">
@@ -93,7 +93,7 @@ export default function PricingSection({ onCheckout }: PricingSectionProps) {
                             <div className="trust-features">
                                 <span className="trust-check">✔ Instant Download</span>
                                 <span className="trust-check">✔ Lifetime Access</span>
-                                <span className="trust-check">✔ 64GB Bundle</span>
+                                <span className="trust-check">✔ 64GB Toolkit</span>
                                 <span className="trust-check">✔ Free Updates</span>
                             </div>
                         </div>

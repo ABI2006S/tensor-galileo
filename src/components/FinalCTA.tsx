@@ -9,9 +9,9 @@ export default function FinalCTA() {
             <div className="container">
                 <div className="cta-card text-center reveal">
                     <h2 className="cta-title reveal reveal-delay-100">Start Creating Cinematic Videos Today</h2>
-                    <p className="cta-subtitle reveal reveal-delay-200">Upgrade your editing workflow with Lumefx Creator Bundle.</p>
+                    <p className="cta-subtitle reveal reveal-delay-200">Upgrade your editing workflow with Lumefx Creator Toolkit.</p>
                     <button className="btn-primary btn-large reveal reveal-delay-300" onClick={() => document.getElementById('pricing')?.scrollIntoView()}>
-                        Get Lumefx Creator Bundle
+                        Get Lumefx Creator Toolkit
                     </button>
                     <p className="cta-trust-text mt-4 text-sm font-medium" style={{ color: "var(--muted-foreground)" }}>
                         Instant Download • Lifetime Access

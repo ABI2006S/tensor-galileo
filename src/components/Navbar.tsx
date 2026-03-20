@@ -31,21 +31,21 @@ export default function Navbar({ scrollToSection }: { scrollToSection?: (id: str
 
                     <div className={`navbar-links ${isMenuOpen ? 'mobile-active' : ''}`}>
                         <a href="#home" onClick={(e) => { e.preventDefault(); handleLinkClick('home'); }}>Home</a>
-                        <a href="#bundle" onClick={(e) => { e.preventDefault(); handleLinkClick('bundle'); }}>What&apos;s Inside</a>
+                        <a href="#toolkit" onClick={(e) => { e.preventDefault(); handleLinkClick('toolkit'); }}>What&apos;s Inside</a>
                         <a href="#preview" onClick={(e) => { e.preventDefault(); /* Disabled as requested */ }} style={{ opacity: 0.5, cursor: 'not-allowed' }}>Samples</a>
                         <a href="#reviews" onClick={(e) => { e.preventDefault(); handleLinkClick('reviews'); }}>Reviews</a>
                         <a href="#pricing" onClick={(e) => { e.preventDefault(); handleLinkClick('pricing'); }}>Pricing</a>
                         
                         <div className="mobile-only-cta">
                              <button className="btn-primary" onClick={() => handleLinkClick('pricing')}>
-                                Get Bundle
+                                Get Toolkit
                             </button>
                         </div>
                     </div>
 
                     <div className="navbar-cta desktop-only">
                         <button className="btn-primary btn-nav" onClick={() => handleLinkClick('pricing')}>
-                            Get Bundle
+                            Get Toolkit
                         </button>
                     </div>
                 </div>

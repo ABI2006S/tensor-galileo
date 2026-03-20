@@ -12,17 +12,17 @@ const faqData = [
     {
         id: "q2",
         q: "Which editing software is supported?",
-        a: "Lumefx bundles work natively with Premiere Pro, After Effects, DaVinci Resolve, Final Cut Pro, CapCut, and any software supporting .cube and standard preset files."
+        a: "Lumefx Toolkits work natively with Premiere Pro, After Effects, DaVinci Resolve, Final Cut Pro, CapCut, and any software supporting .cube and standard preset files."
     },
     {
         id: "q3",
-        q: "How do I download the bundle?",
+        q: "How do I download the Toolkit?",
         a: "After checkout, you'll immediately receive a secure download link via email for instant access to the entire 64GB library."
     },
     {
         id: "q4",
         q: "Will I receive updates?",
-        a: "Yes! As a bundle owner, you get lifetime free updates whenever we add new tools, assets, or presets to the Lumefx library."
+        a: "Yes! As a Toolkit owner, you get lifetime free updates whenever we add new tools, assets, or presets to the Lumefx library."
     }
 ];
 
@@ -39,7 +39,7 @@ export default function FaqSection() {
             <div className="container">
                 <div className="section-header text-center reveal">
                     <h2 className="section-title">Got Questions? We&apos;ve Got Answers</h2>
-                    <p className="section-subtitle">Everything you need to know about the Lumefx editing bundle.</p>
+                    <p className="section-subtitle">Everything you need to know about the Lumefx editing Toolkit.</p>
                 </div>
 
                 <div className="faq-list">

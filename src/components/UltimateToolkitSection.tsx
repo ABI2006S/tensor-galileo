@@ -5,22 +5,22 @@ import Image from 'next/image';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 const IMAGES = [
-  '/bundle/1.png',
-  '/bundle/2.png',
-  '/bundle/3.png',
-  '/bundle/4.png',
-  '/bundle/5.png',
-  '/bundle/6.png',
-  '/bundle/7.png',
-  '/bundle/8.png',
-  '/bundle/9.png',
+  '/toolkit/1.png',
+  '/toolkit/2.png',
+  '/toolkit/3.png',
+  '/toolkit/4.png',
+  '/toolkit/5.png',
+  '/toolkit/6.png',
+  '/toolkit/7.png',
+  '/toolkit/8.png',
+  '/toolkit/9.png',
 ];
 
 const TOTAL = IMAGES.length;
 const TRANSITION_MS = 500;
 const AUTOPLAY_MS  = 4000;
 
-export default function UltimateBundleSection() {
+export default function UltimateToolkitSection() {
   useScrollReveal();
 
   // Use refs so interval callbacks always see fresh values
@@ -357,13 +357,13 @@ export default function UltimateBundleSection() {
         }
       `}</style>
 
-      <section className="ubs-section" id="bundle">
+      <section className="ubs-section" id="toolkit">
         <div className="container">
           <div className="ubs-inner reveal">
 
             {/* Header */}
             <div className="ubs-header">
-              <h2>Ultimate Editing Bundle</h2>
+              <h2>Ultimate Editing Toolkit</h2>
               <p>The complete toolkit — everything you need in one place.</p>
             </div>
 
@@ -381,7 +381,7 @@ export default function UltimateBundleSection() {
                 >
                   <Image
                     src={IMAGES[exitIdx]}
-                    alt={`Bundle image ${exitIdx + 1}`}
+                    alt={`Toolkit image ${exitIdx + 1}`}
                     fill
                     style={{ objectFit: 'contain', background: '#060606' }}
                     sizes="(max-width:768px) 100vw, 800px"
@@ -399,7 +399,7 @@ export default function UltimateBundleSection() {
               >
                 <Image
                   src={IMAGES[displayIdx]}
-                  alt={`Bundle image ${displayIdx + 1}`}
+                  alt={`Toolkit image ${displayIdx + 1}`}
                   fill
                   style={{ objectFit: 'contain', background: '#060606' }}
                   sizes="(max-width:768px) 100vw, 800px"
@@ -469,7 +469,7 @@ export default function UltimateBundleSection() {
 
             {/* Badge */}
             <div className="ubs-badge">
-              <span>Total 64 GB Creator Bundle</span>
+              <span>Total 64 GB Creator Toolkit</span>
             </div>
 
             {/* Buy Now */}

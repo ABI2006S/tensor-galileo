@@ -17,7 +17,7 @@ export default function SampleGallery() {
         <section id="reviews" className="gallery-section">
             <div className="container">
                 <div className="section-header text-center reveal">
-                    <h2 className="section-title">Preview the Bundle</h2>
+                    <h2 className="section-title">Preview the Toolkit</h2>
                 </div>
 
                 <div className="reveal reveal-delay-200 mt-8 mb-8">

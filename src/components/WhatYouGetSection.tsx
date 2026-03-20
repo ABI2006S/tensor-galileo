@@ -54,7 +54,7 @@ export default function WhatYouGetSection() {
             <div className="container">
                 <div className="section-header text-center reveal">
                     <h2 className="section-title">What You Get Inside <span className="text-accent">Lumefx</span></h2>
-                    <p className="section-subtitle">Follow the journey of everything included in the ultimate creator bundle.</p>
+                    <p className="section-subtitle">Follow the journey of everything included in the ultimate creator Toolkit.</p>
                 </div>
 
                 <div className="journey-timeline">

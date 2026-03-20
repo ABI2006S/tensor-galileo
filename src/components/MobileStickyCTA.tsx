@@ -20,7 +20,7 @@ export default function MobileStickyCTA() {
     return (
         <div className={`mobile-sticky-wrapper ${isVisible ? 'visible' : ''}`}>
             <button className="btn-primary" onClick={() => document.getElementById('pricing')?.scrollIntoView()}>
-                Get Lumefx Bundle
+                Get Lumefx Toolkit
             </button>
         </div>
     );

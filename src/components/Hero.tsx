@@ -35,10 +35,10 @@ export default function Hero() {
                     </p>
                     <div className="hero-cta-wrapper reveal reveal-delay-300">
                         <button className="btn-primary btn-hero-cta" onClick={() => document.getElementById('pricing')?.scrollIntoView()}>
-                            Get Lumefx Creator Bundle
+                            Get Lumefx Creator Toolkit
                         </button>
                         <span className="hero-guarantee mt-4 block text-sm font-medium tracking-widest uppercase opacity-80" style={{ color: "var(--muted-foreground)" }}>
-                            Instant Download • Lifetime Access • 64GB Creator Bundle
+                            Instant Download • Lifetime Access • 64GB Creator Toolkit
                         </span>
 
                         <div className="hero-trust reveal reveal-delay-400">

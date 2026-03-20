@@ -326,7 +326,7 @@ export default function NewPricingSection({ onCheckout }: { onCheckout?: () => v
             {/* Centered top header */}
             <div className="nps-top-header">
               <div className="nps-badge">Limited Creator Offer</div>
-              <h2 className="nps-main-title">Complete Creator Bundle</h2>
+              <h2 className="nps-main-title">Complete Creator Toolkit</h2>
             </div>
 
             {/* Two-column body */}
@@ -374,7 +374,7 @@ export default function NewPricingSection({ onCheckout }: { onCheckout?: () => v
                 <div className="nps-cta-area">
                   <p className="nps-rating">⭐ Rated 4.8/5 by 10,000+ creators</p>
                   <button onClick={onCheckout} className="nps-cta-btn">
-                    Get Lumefx Bundle Now
+                    Get Lumefx Toolkit Now
                   </button>
                   <p className="nps-secure">
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -390,7 +390,7 @@ export default function NewPricingSection({ onCheckout }: { onCheckout?: () => v
                   {[
                     'Instant Download',
                     'Lifetime Access',
-                    '64GB Bundle',
+                    '64GB Toolkit',
                     'Free Updates',
                   ].map(item => (
                     <div key={item} className="nps-trust-item">
@@ -406,8 +406,8 @@ export default function NewPricingSection({ onCheckout }: { onCheckout?: () => v
               <div className="nps-image-panel reveal reveal-delay-200">
                 <div className="nps-image-frame">
                   <Image
-                    src="/bundle/1.png"
-                    alt="Complete Creator Bundle Preview"
+                    src="/toolkit/1.png"
+                    alt="Complete Creator Toolkit Preview"
                     fill
                     style={{ objectFit: 'contain' }}
                     sizes="(max-width: 860px) 100vw, 50vw"
@@ -415,7 +415,7 @@ export default function NewPricingSection({ onCheckout }: { onCheckout?: () => v
                   />
                 </div>
                 <p className="nps-image-caption">
-                  <strong>64 GB</strong> &nbsp;·&nbsp; Complete Creator Bundle
+                  <strong>64 GB</strong> &nbsp;·&nbsp; Complete Creator Toolkit
                 </p>
               </div>
 

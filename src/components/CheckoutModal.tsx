@@ -32,7 +32,7 @@ export default function CheckoutModal({ isOpen, onClose, onContinue }: CheckoutM
 
                 <div className="modal-header">
                     <h3>Almost there!</h3>
-                    <p>Complete your details to access the bundle.</p>
+                    <p>Complete your details to access the Toolkit.</p>
                 </div>
 
                 <form onSubmit={handleSubmit} className="checkout-form">

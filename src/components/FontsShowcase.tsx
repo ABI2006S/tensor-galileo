@@ -13,7 +13,7 @@ export default function FontsShowcase() {
     <section className="py-24 relative z-10">
       <div className="container fonts-showcase-container">
         <div className="text-center mb-16 reveal">
-          <h2 className="text-4xl md:text-5xl font-black uppercase text-[var(--foreground)] mb-4" style={{ fontFamily: 'var(--font-orbitron)', letterSpacing: '-0.02em' }}>Iman Gadzhi Style Fonts</h2>
+          <h2 className="text-4xl md:text-5xl font-black uppercase text-[var(--foreground)] mb-4" style={{ fontFamily: 'var(--font-orbitron)', letterSpacing: '-0.02em' }}>Lumefx premium Fonts</h2>
           <p className="text-xl text-[var(--muted-foreground)] max-w-2xl mx-auto">Modern typography pack used for viral reels, bold thumbnails, and creator branding.</p>
         </div>
 
@@ -71,9 +71,9 @@ export default function FontsShowcase() {
         </div>
 
         <div className="mt-16 text-center reveal reveal-delay-300">
-             <div className="fonts-included-badge">
-                 + 1000 Included Options
-             </div>
+          <div className="fonts-included-badge">
+            + 1000 Included Options
+          </div>
         </div>
 
       </div>
