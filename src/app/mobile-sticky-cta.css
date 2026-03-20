@@ -2,16 +2,14 @@
     position: fixed;
     bottom: 1.5rem;
     left: 0;
-    right: 0;
-    margin: 0 auto;
-    transform: translateY(150%);
-    width: 90%;
-    max-width: 400px;
-    padding: 0;
-    background: transparent;
+    width: 100%;
+    display: none; /* Overridden by media query */
+    justify-content: center;
+    align-items: center;
     z-index: 1000;
+    pointer-events: none;
     transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-    display: none;
+    transform: translateY(150%);
 }
 
 .mobile-sticky-wrapper.visible {
@@ -19,8 +17,10 @@
 }
 
 .mobile-sticky-wrapper .btn-primary {
-    width: 100%;
+    width: 90%;
+    max-width: 400px;
     margin: 0;
+    pointer-events: auto;
     padding: 1.1rem;
     font-size: 0.9rem;
     font-weight: 900;
@@ -46,6 +46,6 @@
 
 @media (max-width: 768px) {
     .mobile-sticky-wrapper {
-        display: block;
+        display: flex; /* Changed from block to flex */
     }
 }
