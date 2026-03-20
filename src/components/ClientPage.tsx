@@ -251,7 +251,7 @@ export default function ClientPage() {
             onClose={handleCloseCheckout}
             onContinue={handleContinueCheckout}
           />
-          <MobileStickyCTA onOpenCheckout={handleOpenCheckout} />
+          <MobileStickyCTA />
         </>
       )}
     </main>
