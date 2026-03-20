@@ -1,8 +1,10 @@
 .mobile-sticky-wrapper {
     position: fixed;
     bottom: 1.5rem;
-    left: 50%;
-    transform: translateX(-50%) translateY(150%);
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    transform: translateY(150%);
     width: 90%;
     max-width: 400px;
     padding: 0;
@@ -13,7 +15,7 @@
 }
 
 .mobile-sticky-wrapper.visible {
-    transform: translateX(-50%) translateY(0);
+    transform: translateY(0);
 }
 
 .mobile-sticky-wrapper .btn-primary {
