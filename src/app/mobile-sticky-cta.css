@@ -2,35 +2,41 @@
     position: fixed !important;
     bottom: 20px !important;
 
-    left: 50% !important;
-    transform: translate(-50%, 150%) !important;
-    /* center + hidden state */
+    left: 0 !important;
+    right: auto !important;
+    /* prevent stretching */
 
-    width: calc(100% - 40px) !important;
-    /* equal spacing both sides */
-    max-width: 400px !important;
+    width: 100% !important;
+    padding-left: 0 !important;
+    /* no spacing */
+    padding-right: 0 !important;
 
     display: none;
-    justify-content: center !important;
+    justify-content: flex-start !important;
+    /* force left */
     align-items: center !important;
 
     z-index: 9999 !important;
     pointer-events: none !important;
 
+    transform: translateY(150%) !important;
     transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .mobile-sticky-wrapper.visible {
-    transform: translate(-50%, 0) !important;
-    /* keeps it centered */
+    transform: translateY(0) !important;
 }
 
 .mobile-sticky-wrapper .btn-primary {
-    width: 100% !important;
+    width: auto !important;
+    /* don't stretch */
+    margin: 0 !important;
+    /* remove auto centering */
 
     pointer-events: auto !important;
 
-    padding: 1.1rem !important;
+    padding: 1.1rem 1.5rem !important;
+
     font-size: 0.9rem !important;
     font-weight: 900 !important;
     font-family: var(--font-orbitron) !important;
