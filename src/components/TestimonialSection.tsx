@@ -1,7 +1,6 @@
 import React from 'react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import Image from 'next/image';
-import AdminEditableAsset from '@/components/AdminEditableAsset';
 
 const testimonials = [
     {
@@ -45,11 +44,9 @@ export default function TestimonialSection() {
                             <div className="quote-icon">&quot;</div>
                             <p className="testimonial-text">{item.text}</p>
                             <div className="testimonial-author">
-                                <AdminEditableAsset exactPath={`/images/testimonials/user${(item.id % 3) + 1}.jpg`}>
-                                    <div className="avatar" style={{ position: 'relative', overflow: 'hidden', height: '100%', width: '100%' }}>
-                                        <Image src={`/images/testimonials/user${(item.id % 3) + 1}.jpg`} alt={item.author} fill style={{ objectFit: 'cover' }} />
-                                    </div>
-                                </AdminEditableAsset>
+                                <div className="avatar" style={{ position: 'relative', overflow: 'hidden', height: '100%', width: '100%' }}>
+                                    <Image src={`/images/testimonials/user${(item.id % 3) + 1}.jpg`} alt={item.author} fill style={{ objectFit: 'cover' }} />
+                                </div>
                                 <div>
                                     <h4 className="author-name">{item.author}</h4>
                                     <p className="author-role">{item.role}</p>

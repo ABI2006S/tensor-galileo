@@ -1,7 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import Image from 'next/image';
-import AdminEditableAsset from '@/components/AdminEditableAsset';
 
 export default function Hero() {
     useScrollReveal();
@@ -56,19 +55,17 @@ export default function Hero() {
 
                 <div className="hero-visual reveal reveal-delay-400">
                     <div className="hero-video-placeholder" onClick={handleTogglePlay}>
-                        <AdminEditableAsset exactPath="/videos/cinematic.mp4">
-                            <video
-                                ref={videoRef}
-                                src="/videos/cinematic.mp4"
-                                loop
-                                muted
-                                playsInline
-                                className="w-full h-full object-contain"
-                                style={{ position: 'absolute', top: 0, left: 0 }}
-                                onPlay={() => setIsPlaying(true)}
-                                onPause={() => setIsPlaying(false)}
-                            />
-                        </AdminEditableAsset>
+                        <video
+                            ref={videoRef}
+                            src="/videos/cinematic.mp4"
+                            loop
+                            muted
+                            playsInline
+                            className="w-full h-full object-contain"
+                            style={{ position: 'absolute', top: 0, left: 0 }}
+                            onPlay={() => setIsPlaying(true)}
+                            onPause={() => setIsPlaying(false)}
+                        />
                         {!isPlaying && (
                             <div className="hero-video-overlay-items">
                                 <div className="play-button-overlay">

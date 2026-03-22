@@ -1,5 +1,6 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { gsap } from 'gsap';
+import Image from 'next/image';
 
 import './Masonry.css';
 
@@ -36,19 +37,6 @@ const useMeasure = () => {
   }, []);
 
   return [ref, size] as const;
-};
-
-const preloadImages = async (urls: string[]) => {
-  await Promise.all(
-    urls.map(
-      src =>
-        new Promise<void>(resolve => {
-          const img = new Image();
-          img.src = src;
-          img.onload = img.onerror = () => resolve();
-        })
-    )
-  );
 };
 
 interface MasonryItem {
@@ -88,7 +76,6 @@ const Masonry = ({
   );
 
   const [containerRef, { width }] = useMeasure();
-  const [imagesReady, setImagesReady] = useState(false);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const getInitialPosition = (item: any) => {
@@ -121,10 +108,6 @@ const Masonry = ({
     }
   };
 
-  useEffect(() => {
-    preloadImages(items.map(i => i.img)).then(() => setImagesReady(true));
-  }, [items]);
-
   const { grid, containerHeight } = useMemo(() => {
     if (!width) return { grid: [], containerHeight: 0 };
 
@@ -148,7 +131,7 @@ const Masonry = ({
   const hasMounted = useRef(false);
 
   useLayoutEffect(() => {
-    if (!imagesReady || grid.length === 0) return;
+    if (grid.length === 0) return;
 
     grid.forEach((item, index) => {
       const selector = `[data-key="${item.id}"]`;
@@ -190,7 +173,7 @@ const Masonry = ({
 
     hasMounted.current = true;
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [grid, imagesReady, stagger, animateFrom, blurToFocus, duration, ease]);
+  }, [grid, stagger, animateFrom, blurToFocus, duration, ease]);
 
   const handleMouseEnter = (e: React.MouseEvent, item: any) => {
     const element = e.currentTarget as HTMLElement;
@@ -250,7 +233,15 @@ const Masonry = ({
             onMouseEnter={e => handleMouseEnter(e, item)}
             onMouseLeave={e => handleMouseLeave(e, item)}
           >
-            <div className="item-img" style={{ backgroundImage: `url(${item.img})` }}>
+            <div className="item-img" style={{ position: 'relative', overflow: 'hidden' }}>
+              <Image 
+                src={item.img} 
+                alt="Gallery Item" 
+                fill 
+                sizes="(max-width: 400px) 100vw, (max-width: 600px) 50vw, 33vw"
+                style={{ objectFit: 'cover' }}
+                loading="lazy"
+              />
               {colorShiftOnHover && (
                 <div
                   className="color-overlay"
