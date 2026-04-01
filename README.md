@@ -23,7 +23,7 @@ Tensor Galileo (running on [lumefxpresets.store](https://lumefxpresets.store)) p
 
 | Cinematic LUTs | Professional Bundles |
 | :---: | :---: |
-| ![LUT Preview](public/before-after/after1.jpg) | ![Bundle Items](public/bundle/1.png) |
+| ![LUT Preview](public/before-after/after1.jpg) | ![Bundle Items](public/toolkit/1.png) |
 | *Visual Transformation Results* | *Curated Asset Bundles* |
 
 ---
